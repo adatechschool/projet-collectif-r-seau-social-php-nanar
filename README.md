@@ -1,1 +1,1 @@
-# projet-collectif-r-seau-social-php-nanar
+# projet-collectif-réseau-social-php-nanar
