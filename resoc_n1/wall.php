@@ -124,21 +124,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p><?php echo $post['content']; ?></p>
                 </div>
                 <footer>
-    <form action="" method="post" style="display: inline;">
-        <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
-        <button type="submit" name="like" style="border: none; background: none; cursor: pointer;">
-            <img src="./img/like_icon.png" alt="Like" width="20" height="20">
-        </button>
-    </form>
-    <form action="" method="post" style="display: inline;">
-        <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
-        <button type="submit" name="dislike" style="border: none; background: none; cursor: pointer;">
-            <img src="./img/dislike_icon.png" alt="Dislike" width="20" height="20">
-        </button>
-    </form>
-    <small><?php echo $post['like_number']; ?> ♥</small>
-    <a href="tags.php?tag_id=<?php echo $post['tag_id']; ?>"><?php echo $post['taglist']; ?></a>
-</footer>
+                     <form action="" method="post" style="display: inline;">
+                         <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
+                         <button type="submit" name="like" style="border: none; background: none; cursor: pointer;">
+                             <img src="./img/like_icon.png" alt="Like" width="20" height="20">
+                         </button>
+                     </form>
+                     <form action="" method="post" style="display: inline;">
+                         <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
+                         <button type="submit" name="dislike" style="border: none; background: none; cursor: pointer;">
+                             <img src="./img/dislike_icon.png" alt="Dislike" width="20" height="20">
+                         </button>
+                     </form>
+                     <small><?php echo $post['like_number']; ?> ♥</small>
+                     <a href="tags.php?tag_id=<?php echo $post['tag_id']; ?>"><?php echo $post['taglist']; ?></a>
+                 </footer>
 
 
             </article>
