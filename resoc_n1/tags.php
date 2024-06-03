@@ -106,22 +106,31 @@ if (!isset($_SESSION['connected_id'])) {
 
                 //  echo "<pre>" . print_r($post, 1) . "</pre>";
                 ?>
-                <article>
+                 <article>
                     <h3>
-                        <time datetime='2020-02-01 11:12:13'><?php echo $post['created'] ?></time>
+                    <?php
+                         date_default_timezone_set('Europe/Paris');
+
+                         $script_tz = date_default_timezone_get();
+
+                         if (strcmp($script_tz, ini_get('date.timezone'))){
+                             echo 'Script timezone differs from ini-set timezone.';
+                         } else {
+                             echo 'Script timezone and ini-set timezone match.';
+                         }
+                         ?>
                     </h3>
-                    <address><?php echo $post['author_name'] ?></address>
+                    <address><?php echo htmlspecialchars($post['author_name']); ?></address>
                     <div>
-                        <p><?php echo $post['content'] ?></p>
+                        <p><?php echo htmlspecialchars($post['content']); ?></p>
                     </div>
                     <footer>
-                        <small>♥ <?php echo $post['like_number'] ?></small>
-                        <a href=""><?php echo $post['taglist'] ?></a>,
+                        <small>♥ <?php echo htmlspecialchars($post['like_number']); ?></small>
+                        <a href=""><?php echo htmlspecialchars($post['taglist']); ?></a>,
                     </footer>
                 </article>
+
             <?php } ?>
-
-
         </main>
     </div>
 </body>

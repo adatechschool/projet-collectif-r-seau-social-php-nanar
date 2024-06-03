@@ -109,24 +109,32 @@ if (!isset($_SESSION['connected_id'])) {
                  */
                 ?>
                 <article>
-                    <h3>
-                        <time datetime='2020-02-01 11:12:13'><?php echo $followers['created'] ?></time>
-                    </h3>
-                    <address><?php echo $followers['author_name'] ?></address>
-                    <div>
-                        <p><?php echo $followers['content'] ?></p>
-                    </div>
-                    <footer>
-                        <small>♥ <?php echo $followers['like_number'] ?></small>
-                        <a href="tags.php"><?php echo $followers['taglist'] ?></a>,
+                <h3>            
+            <?php
+            date_default_timezone_set('Europe/Paris');
 
-                    </footer>
-                </article>
+            $script_tz = date_default_timezone_get();
+
+            if (strcmp($script_tz, ini_get('date.timezone'))){
+                echo 'Script timezone differs from ini-set timezone.';
+            } else {
+                echo 'Script timezone and ini-set timezone match.';
+            }
+            ?>
+            </h3>
+                 <address><?php echo htmlspecialchars($post['author_name']); ?></address>
+               <div>
+               <p><?php echo htmlspecialchars($post['content']); ?></p>
+               </div>
+              <footer>
+                 <small>♥ <?php echo htmlspecialchars($post['like_number']); ?></small>
+                 <a href=""><?php echo htmlspecialchars($post['taglist']); ?></a>,
+             </footer>
+             </article>
+
             <?php }
             // et de pas oublier de fermer ici vote while
             ?>
-
-
         </main>
     </div>
 </body>
